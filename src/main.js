@@ -9,7 +9,9 @@ import 'muse-ui/dist/muse-ui.css'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 import VueLazyload from 'vue-lazyload'
+import axios from 'axios'
 
+Vue.prototype.$http = axios
 Vue.use(MuseUI)
 Vue.use(ElementUI)
 Vue.use(VueLazyload)

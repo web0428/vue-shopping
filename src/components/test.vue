@@ -1,35 +1,31 @@
 <script>
-import IMG from '../assets/images/brand2.png'
 export default {
-  name: 'hello',
-  data() {
-    return {
-      src:IMG
-    };
+  data(){
+    return{
+      img:""
+    }
+  },
+  created: function(){
+    this.show()
+  },
+  methods:{
+    show(){
+    this.$http.get("https://api.douban.com/v2/book/1220562").then(res => {
+    console.log(res.data.image)
+    this.img=res.data.image
+}, res => {
+    // error callback
+})
+    }
   }
 };
 </script>
+<style>
 
+</style>
 <template>
-  <div class="hello">
-	  
-      <img v-lazy="src" alt="" width="300" height="150"/>
-
+<div>
+  <img :src="img" alt="">
 </div>
 </template>
 
-<style>
-img[lazy=loading]{
-}
-img[lazy=loaded]{
-  animation:fade 1s;
-}
-@keyframes fade {
-  0%{
-    opacity: 0;
-  }
-  100%{
-    opacity: 1;
-  }
-}
-</style>

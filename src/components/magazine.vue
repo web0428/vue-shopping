@@ -50,9 +50,6 @@ export default {
     },
     handleChange (val) {
       this.bottomNav = val
-    },
-    pageScroll(){
-       scrollTo(0,0);
     }
   }
 }

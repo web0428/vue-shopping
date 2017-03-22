@@ -99,11 +99,31 @@
                         <img v-lazy="genre1" height="100%" width="100%" alt="">
                     </router-link>
                 </li>
-                <li><img v-lazy="genre2" height="100%" width="100%" alt=""></li>
-                <li><img v-lazy="genre3" height="100%" width="100%" alt=""></li>
-                <li><img v-lazy="genre4" height="100%" width="100%" alt=""></li>
-                <li><img v-lazy="genre5" height="100%" width="100%" alt=""></li>
-                <li><img v-lazy="genre6" height="100%" width="100%" alt=""></li>
+                <li>
+                    <router-link to="/classify">
+                        <img v-lazy="genre2" height="100%" width="100%" alt="">
+                    </router-link>
+                </li>
+                <li>
+                    <router-link to="/classify">
+                        <img v-lazy="genre3" height="100%" width="100%" alt="">
+                    </router-link>
+                </li>
+                <li>
+                    <router-link to="/classify">
+                        <img v-lazy="genre4" height="100%" width="100%" alt="">
+                    </router-link>
+                </li>
+                <li>
+                    <router-link to="/classify">
+                        <img v-lazy="genre5" height="100%" width="100%" alt="">
+                    </router-link>
+                </li>
+                <li>
+                    <router-link to="/classify">
+                        <img v-lazy="genre6" height="100%" width="100%" alt="">
+                    </router-link>
+                </li>
             </ul>
           </div>
           <div v-if="activeTab === 'tab4'" class="tab">
@@ -186,19 +206,30 @@ export default {
     handleChange (val) {
       this.bottomNav = val
     },
-    pageScroll(){
-       scrollTo(0,0);
-    },
     shop(){
         alert("请进入购物车进行结算")
     }
-  },
+    },
     created(){
             this.shop();
         },
 }
 </script>
 <style>
+/*vue-lazyload*/
+img[lazy=loading]{
+}
+img[lazy=loaded]{
+  animation:fade 0.5s;
+}
+@keyframes fade {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
 /*头部搜索*/
 .header_search{
     height: 48px;

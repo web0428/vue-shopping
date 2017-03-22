@@ -1,6 +1,6 @@
 <template>
 <div>
-    <mu-appbar title="杂志" zDepth="0">
+    <mu-appbar title="分享" zDepth="0">
           <mu-icon-button slot="left" icon='search' style="color: #4E4C4C;"/>
           <mu-icon-button icon='menu' slot="right" style="color: #4E4C4C;"/>
     </mu-appbar>
@@ -46,9 +46,6 @@ export default {
     },
     handleChange (val) {
       this.bottomNav = val
-    },
-    pageScroll(){
-       scrollTo(0,0);
     }
   }
 }

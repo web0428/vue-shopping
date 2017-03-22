@@ -25,18 +25,27 @@ Vue.use(Router)
 export default new Router({
 	mode: 'history',
   	routes: [
-    { path:'/', component:Login},
-    { path:'/getback', component:Getback},
-    { path:'/reg', component:Reg},
-    { path:'/shop', component:Shop},
-    { path:'/magazine', component:Magazine},
-    { path:'/share', component:Share},
-    { path:'/person', component:Person},
-    { path:'/shopcart', component:Shopcart},
+    { path:'/', component:resolve => require(['../components/login.vue'], resolve)},
+    { path:'/getback', component:resolve => require(['../components/get_back.vue'], resolve)},
+    { path:'/reg', component:resolve => require(['../components/reg.vue'], resolve)},
+    { path:'/shop', component:resolve => require(['../components/shop.vue'], resolve)},
+    { path:'/magazine', component:resolve => require(['../components/magazine.vue'], resolve)},
+    { path:'/share', component:resolve => require(['../components/share.vue'], resolve)},
+    { path:'/person', component:resolve => require(['../components/person.vue'], resolve)},
+    { path:'/shopcart', component:resolve => require(['../components/shop_cart.vue'], resolve)},
     { path:'/test', component:Test},
-    { path:'/brand/:id', component:Brand},
-    { path:'/classify', component:Classify},
-  ]
+    { path:'/brand/:id', component:resolve => require(['../components/brand.vue'], resolve)},
+    { path:'/classify', component:resolve => require(['../components/classify.vue'], resolve)},
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    if (to.hash) {
+    return {
+      selector: to.hash
+    }}else{
+      return { x: 0, y: 0 }
+    }
+    
+  }
 })
 
 
